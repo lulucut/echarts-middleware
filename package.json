@@ -1,8 +1,8 @@
 {
   "name": "echarts-middleware",
-  "version": "1.0.2",
-  "description": "A Vue.js project",
-  "author": "PUGE <100284685@qq.com>",
+  "version": "1.0.3",
+  "description": "在vue中轻巧优雅的使用echarts",
+  "author": "PUGE <my@owo.help>",
   "private": false,
   "main": "src/index.js",
   "scripts": {
