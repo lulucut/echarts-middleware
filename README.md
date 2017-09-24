@@ -140,9 +140,9 @@ npm install -save echarts-middleware
 
 | 参数        | 含义         | 类型  | 是否必须  |
 | ----------- |:-------------:| -----:| -----:|
-|    opt      | echarts图表配置 | Object | true |
-|    w        | 图表的宽度      | Number | false |
-|    h        | 图表的高度      | Number | false |
+|opt| 图表的配置 | Object | true |
+|w| 图表的宽度| Number | false |
+|h| 图表的高度| Number | false |
 
 使用实例：
 
@@ -177,6 +177,6 @@ npm install -save echarts-middleware
   }
 </script>
 ```
-支持的方法，理论支持echarts所有方法，具体方法列表请查阅 [API文档][http://echarts.baidu.com/api.html#echarts]
+支持的方法，理论支持echarts所有方法，具体方法列表请查阅 [API文档](http://echarts.baidu.com/api.html#echarts)
 
-举例:使用this.$refs[ref名][0].chart.dispose() 销毁图表
+举例:使用`this.$refs[ref名][0].chart.dispose()` 销毁图表
