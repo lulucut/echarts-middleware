@@ -1,6 +1,6 @@
 {
   "name": "echarts-middleware",
-  "version": "1.0.3",
+  "version": "1.0.6",
   "description": "在vue中轻巧优雅的使用echarts",
   "author": "PUGE <my@owo.help>",
   "private": false,
@@ -10,6 +10,21 @@
     "start": "node build/dev-server.js",
     "build": "node build/build.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PUGE/echarts-middleware.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PUGE/echarts-middleware/issues"
+  },
+  "homepage": "https://github.com/PUGE/echarts-middleware",
+  "keywords": [
+    "echarts",
+    "vue",
+    "chart",
+    "echarts-middleware"
+  ],
   "devDependencies": {
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
