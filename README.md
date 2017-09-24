@@ -1,5 +1,5 @@
 # echarts-middleware
-在vue中优雅，高效的使用echarts
+在vue中优雅，高效的使用echarts,不断完善中
 
 ## 快速上手
 
