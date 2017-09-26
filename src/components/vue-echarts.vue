@@ -1,5 +1,5 @@
 <template>
-  <div :style="{ height: height + 'px', width: width +'px' }"></div>
+  <div class="echarts" :style="{ height: height + 'px', width: width +'px' }"></div>
 </template>
 
 <script>
@@ -19,7 +19,7 @@
         width: 0
       }
     },
-    created () {
+    mounted () {
       if (!echarts) {
         console.error('本组件需要配合echarts组件使用,请运行npm i -save echarts安装!')
       }
@@ -32,23 +32,23 @@
         this.height = h
         this.width = w
       } else {
-        const parent = this.$parent
-        if (parent && parent.width && parent.height) {
-          this.height = parent.height
-          this.width = parent.width
+        const parent = this.$el.parentNode
+        if (parent && parent.clientWidth && parent.clientHeight) {
+          this.height = parent.clientHeight
+          this.width = parent.clientWidth
         } else {
           this.height = this.width = 400
           console.error('图表 宽度(w) 和 高度(h) 未设置!')
         }
       }
-    },
-    mounted () {
-      // 注册echarts
-      if (this.opt) {
-        chart = echarts.init(this.$el, this.opt)
-        // 绘制图表
-        chart.setOption(this.opt)
-      }
+      setTimeout(() => {
+        // 注册echarts
+        if (this.opt) {
+          chart = echarts.init(this.$el, this.opt)
+          // 绘制图表
+          chart.setOption(this.opt)
+        }
+      }, 0);
     },
     computed: {
       // 返回echarts实例
