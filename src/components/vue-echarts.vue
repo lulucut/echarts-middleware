@@ -5,7 +5,7 @@
 <script>
   import echarts from 'echarts'
   // echarts实例
-  let chart = null
+  let chart = []
 
   export default {
     props: {
@@ -16,7 +16,8 @@
     data () {
       return {
         height: 0,
-        width: 0
+        width: 0,
+        chart: chart
       }
     },
     mounted () {
@@ -41,19 +42,14 @@
           console.error('图表 宽度(w) 和 高度(h) 未设置!')
         }
       }
-      setTimeout(() => {
-        // 注册echarts
-        if (this.opt) {
-          chart = echarts.init(this.$el, this.opt)
+      // 注册echarts
+      if (this.opt) {
+        setTimeout(() => {
+          chart[0] = echarts.init(this.$el, this.opt)
           // 绘制图表
-          chart.setOption(this.opt)
-        }
-      }, 0);
-    },
-    computed: {
-      // 返回echarts实例
-      chart () {
-        return chart
+          chart[0].setOption(this.opt)
+          console.log(chart)
+        }, 0)
       }
     },
     beforeDestroy () {
