@@ -16,8 +16,7 @@
     data () {
       return {
         height: 0,
-        width: 0,
-        chart: chart
+        width: 0
       }
     },
     mounted () {
@@ -52,9 +51,14 @@
         }, 0)
       }
     },
+    computed: {
+      chart: () => {
+        return chart[0]
+      }
+    },
     beforeDestroy () {
       // 释放echarts
-      chart.dispose()
+      chart[0].dispose()
     }
   }
 </script>

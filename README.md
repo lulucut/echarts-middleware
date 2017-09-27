@@ -169,10 +169,8 @@ npm install -save echarts-middleware
     components: {
       methods：{
         click () {
-          // 目前调用有点麻烦，正在改进
-          const chart = this.$refs[mychart][0].chart
           console.log('下面即是echarts对象')
-          console.log(chart[0])
+          console.log(this.$refs[mychart][0].chart)
         }
       }
     }
