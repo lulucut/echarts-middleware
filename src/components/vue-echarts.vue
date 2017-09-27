@@ -5,8 +5,7 @@
 <script>
   import echarts from 'echarts'
   // echarts实例
-  let chart = []
-
+  let chart = null
   export default {
     props: {
       opt: Object,
@@ -16,7 +15,8 @@
     data () {
       return {
         height: 0,
-        width: 0
+        width: 0,
+        chart: null
       }
     },
     mounted () {
@@ -44,21 +44,16 @@
       // 注册echarts
       if (this.opt) {
         setTimeout(() => {
-          chart[0] = echarts.init(this.$el, this.opt)
+          chart = echarts.init(this.$el, this.opt)
           // 绘制图表
-          chart[0].setOption(this.opt)
-          console.log(chart)
+          chart.setOption(this.opt)
+          this.chart = chart
         }, 0)
-      }
-    },
-    computed: {
-      chart: () => {
-        return chart[0]
       }
     },
     beforeDestroy () {
       // 释放echarts
-      chart[0].dispose()
+      chart.dispose()
     }
   }
 </script>
