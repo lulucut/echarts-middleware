@@ -5,7 +5,6 @@
 <script>
   import echarts from 'echarts'
   // echarts实例
-  let chart = null
   export default {
     props: {
       opt: Object,
@@ -43,6 +42,7 @@
       }
       // 注册echarts
       if (this.opt) {
+        let chart = null
         setTimeout(() => {
           chart = echarts.init(this.$el, this.opt)
           // 绘制图表
@@ -53,7 +53,7 @@
     },
     beforeDestroy () {
       // 释放echarts
-      chart.dispose()
+      this.chart.dispose()
     }
   }
 </script>
