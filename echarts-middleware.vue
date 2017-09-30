@@ -7,6 +7,7 @@
   // echarts实例
   export default {
     props: {
+      value: null,
       opt: Object,
       h: Number,
       w: Number,
@@ -46,6 +47,10 @@
           // 绘制图表
           chart.setOption(opt)
           this.chart = chart
+          // 判断是否绑定v-model，如果绑定了就将值传给v-model
+          if (this.value !== undefined) {
+            this.$emit('input', chart)
+          }
         }, 0)
       }
     },

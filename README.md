@@ -28,12 +28,11 @@ npm install -save echarts-middleware
 ```
 <template>
   <div class="my-chart">
-    <Chart :opt="data", :w="400", :h="400"></Chart>
+    <Chart :opt="data" :w="400" :h="400"></Chart>
   <div>
 </template>
 
 <script>
-  import echarts from 'echarts'
   import Chart from 'echarts-middleware'
   export default {
     components: {
@@ -148,33 +147,88 @@ npm install -save echarts-middleware
 使用实例：
 
 ```
-<Chart :opt="data", :w="400", :h="400"></Chart>
+<Chart :opt="data" :w="400" :h="400"></Chart>
 ```
 
 注:如果 w h 参数没有设置，组件会以父组件宽高作为组件宽高， 如果父组件没有宽高则会以400px作为宽高。
 
 
 
-## 操作echarts实例
+## 获取Echarts对象的方法
 
+1.使用refs取得Echarts实例
 ```
 <template>
   <div>
-    <Chart :opt="data", ref="mychart" :w="400", :h="400"></Chart>
-    <button @click="click"></button>
+    <Chart ref="mychart" :opt="data" :w="400" :h="400"></Chart>
+    <button @click="click">销毁图表</button>
   </div>
 </template>
 <script>
-  import echarts from 'echarts-middleware'
+  import Chart from 'echarts-middleware'
   export default {
     components: {
-      methods：{
-        click () {
-          console.log('下面即是echarts对象')
-          console.log(this.$refs[mychart][0].chart)
+      Chart
+    },
+    data () {
+      return {
+        data: {
+          'series': [{
+            'name': 'gauge',
+            'type': 'gauge',
+            'detail': {'formatter': '{value}'},
+            'data': [{'value': 34}]
+          }]
         }
       }
-    }
+    },
+    methods: {
+      click () {
+        const chart = this.$refs['mychart'].chart // 有的版本需要用this.$refs['mychart'][0].chart
+        console.log('输出echarts对象', chart)
+        console.log('销毁echarts图表')
+        chart.dispose()
+      }
+    }
+  }
+</script>
+```
+2.使用v-model接收echarts实例
+```
+<template>
+  <div>
+    <Chart v-model="chart" :opt="data" ref="mychart" :w="400" :h="400"></Chart>
+    <button @click="click">销毁图表</button>
+  </div>
+</template>
+
+<script>
+  import Chart from 'echarts-middleware'
+  export default {
+    components: {
+      Chart
+    },
+    data () {
+      return {
+        data: {
+          'series': [{
+            'name': 'gauge',
+            'type': 'gauge',
+            'detail': {'formatter': '{value}'},
+            'data': [{'value': 34}]
+          }]
+        },
+        chart: null
+      }
+    },
+    methods: {
+      click () {
+        const chart = this.chart
+        console.log('输出echarts对象', chart)
+        console.log('销毁echarts图表')
+        chart.dispose()
+      }
+    }
   }
 </script>
 ```
