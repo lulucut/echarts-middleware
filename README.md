@@ -143,6 +143,7 @@ npm install -save echarts-middleware
 |opt| 图表的配置 | Object | true |
 |w| 图表的宽度| Number | false |
 |h| 图表的高度| Number | false |
+|theme| 主题| String, Object | false |
 
 使用实例：
 
