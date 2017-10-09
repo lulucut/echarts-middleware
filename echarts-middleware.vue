@@ -55,8 +55,10 @@
       }
     },
     beforeDestroy () {
-      // 释放echarts
-      this.chart.dispose()
+      if (this.chart) {
+        this.chart.dispose()
+        this.chart = null
+      }
     }
   }
 </script>
