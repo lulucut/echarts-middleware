@@ -1,6 +1,6 @@
 {
   "name": "echarts-middleware",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "在vue中轻巧优雅的使用echarts",
   "author": "PUGE <my@owo.help>",
   "private": false,

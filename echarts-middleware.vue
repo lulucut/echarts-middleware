@@ -1,5 +1,5 @@
 <template>
-  <div class="echarts"></div>
+  <div v-once class="echarts"></div>
 </template>
 
 <script>
@@ -52,6 +52,22 @@
             this.$emit('input', chart)
           }
         }, 0)
+      }
+    },
+    watch: {
+      opt (newOpt) {
+        if (newOpt) {
+          const parent = this.$el.parentNode
+          const height = parent.clientHeight
+          const width = parent.clientWidth
+          this.chart.clear()
+          // 待优化
+          this.chart.setOption(newOpt)
+          this.chart.resize({width, height})
+        } else {
+          this.chart.dispose()
+          this.chart = null
+        }
       }
     },
     beforeDestroy () {
