@@ -1,6 +1,8 @@
 # echarts-middleware
 在vue中优雅，高效的使用echarts,不断完善中
 
+# 由于echarts3.8版本没有module.exports所以请暂时使用echarts3.7版本
+
 ## 快速上手
 
 安装

@@ -3,7 +3,7 @@
 </template>
 
 <script>
-  const echarts = require('echarts')
+  import echarts from 'echarts/lib/echarts'
   // echarts实例
   export default {
     props: {
