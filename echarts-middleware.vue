@@ -11,7 +11,11 @@
       opt: Object,
       h: Number,
       w: Number,
-      theme: [String, Object]
+      theme: [String, Object],
+      renderer: {
+        type: String,
+        default: 'canvas'
+      }
     },
     data () {
       return {
@@ -43,7 +47,7 @@
       if (opt) {
         let chart = null
         setTimeout(() => {
-          chart = echarts.init(this.$el, this.theme, {width, height})
+          chart = echarts.init(this.$el, this.theme, {width, height, renderer})
           // 绘制图表
           chart.setOption(opt)
           this.chart = chart
