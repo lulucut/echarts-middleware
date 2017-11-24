@@ -47,6 +47,7 @@
       if (opt) {
         let chart = null
         setTimeout(() => {
+          const renderer = this.renderer
           chart = echarts.init(this.$el, this.theme, {width, height, renderer})
           // 绘制图表
           chart.setOption(opt)
