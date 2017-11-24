@@ -54,22 +54,6 @@
         }, 0)
       }
     },
-    watch: {
-      opt (newOpt) {
-        if (newOpt) {
-          const parent = this.$el.parentNode
-          const height = parent.clientHeight
-          const width = parent.clientWidth
-          this.chart.clear()
-          // 待优化
-          this.chart.setOption(newOpt)
-          this.chart.resize({width, height})
-        } else {
-          this.chart.dispose()
-          this.chart = null
-        }
-      }
-    },
     beforeDestroy () {
       if (this.chart) {
         this.chart.dispose()

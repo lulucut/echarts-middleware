@@ -1,8 +1,6 @@
 # echarts-middleware
 在vue中优雅，高效的使用echarts,不断完善中
 
-# 由于echarts3.8版本没有module.exports所以请暂时使用echarts3.7版本
-
 ## 快速上手
 
 安装
@@ -237,3 +235,6 @@ npm install -save echarts-middleware
 支持的方法，理论支持echarts所有方法，具体方法列表请查阅 [API文档](http://echarts.baidu.com/api.html#echarts)
 
 举例:使用`this.$refs[ref名][0].chart.dispose()` 销毁图表
+
+## 常见问题
+1. 图表不刷新？ 解决办法： 使用 :key
