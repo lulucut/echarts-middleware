@@ -236,5 +236,18 @@ npm install -save echarts-middleware
 
 举例:使用`this.$refs[ref名][0].chart.dispose()` 销毁图表
 
+<<<<<<< HEAD
 ## 常见问题
 1. 图表不刷新？ 解决办法： 使用 :key
+
+2.错误问题: __DEV__ is not defined
+  解决方法:
+  ```
+  在 webpack的配置里面加一个配置
+
+  plugins: [
+    new webpack.DefinePlugin({
+      __DEV__: false
+    })
+  ]
+  ```
