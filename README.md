@@ -14,7 +14,7 @@ npm install -save echarts-middleware
 
 ```
 <script>
-  import echarts from 'echarts'
+  import 'echarts'
   import Chart from 'echarts-middleware'
   export default {
     components: {
@@ -29,7 +29,7 @@ npm install -save echarts-middleware
 <template>
   <div class="my-chart">
     <Chart :opt="data" :w="400" :h="400"></Chart>
-  <div>
+  </div>
 </template>
 
 <script>
